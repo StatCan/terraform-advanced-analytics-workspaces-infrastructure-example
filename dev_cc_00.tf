@@ -7,7 +7,7 @@ locals {
 }
 
 module "aaw_dev_cc_00" {
-  source = "git::https://github.com/StatCan/terraform-azure-statcan-aaw-environment.git?ref=v1.4.7"
+  source = "git::https://github.com/StatCan/terraform-azure-statcan-aaw-environment.git?ref=v1.4.9"
 
   // The naming convention of resources within
   // this environment is:
@@ -200,7 +200,7 @@ module "aaw_dev_cc_00_platform" {
     helm       = helm.helm_aaw_dev_cc_00
   }
 
-  source = "git::https://github.com/StatCan/terraform-statcan-aaw-platform.git?ref=v2.2.3"
+  source = "git::https://github.com/StatCan/terraform-statcan-aaw-platform.git?ref=v3.0.6"
 
   prefix       = module.aaw_dev_cc_00.prefix
   azure_region = module.aaw_dev_cc_00.azure_region
@@ -237,7 +237,7 @@ module "aaw_dev_cc_00_platform" {
   # vault
   vault_address = "https://vault.${module.aaw_dev_cc_00.dns_zone}"
 
-  administrative_groups = var.administrative_groups
+  administrative_groups = var.dev_admins
 
   load_balancer_subnet = module.aaw_dev_cc_00.aks_load_balancers_subnet_name
 }

@@ -24,6 +24,11 @@ variable "administrative_groups" {
   description = "List of administrative groups"
 }
 
+variable "dev_admins" {
+  type        = list(string)
+  description = "List of administrative groups specific for dev cluster"
+}
+
 # KubeCost
 
 variable "kubecost_token" {
